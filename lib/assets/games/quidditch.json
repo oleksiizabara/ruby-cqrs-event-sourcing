@@ -1,0 +1,1370 @@
+{
+  "name": "Quidditch",
+  "description": "Quidditch is a fictional sport invented by author J. K. Rowling for her fantasy book series Harry Potter. It is a dangerous but popular semi-contact sport played by witches and wizards riding flying broomsticks. Matches are played on a large oval pitch with three ring-shaped goals of different heights on each side, between two opposing teams of seven players each: three Chasers, two Beaters, one Keeper, and one Seeker. Matches are started by the release of magical balls from a set of starting positions; one Quaffle, two Bludgers, and one Golden Snitch. Quidditch is played in the wizarding world of the Harry Potter universe, but has become a globally popular sport, both in the wizarding world and among Muggles (non-magical people).",
+  "assets": {
+    "emoji": "🧹"
+  },
+  "identifier": "quidditch",
+  "periods": [
+    {
+      "duration": 5
+    }
+  ],
+  "field": {
+    "form": "rectangle",
+    "size": {
+      "length": 152,
+      "width": 54
+    },
+    "structure": {
+      "goal_post_1": {
+        "name": "Goal Post",
+        "identifier": "goal_post_1",
+        "coordinates": {
+          "a": {
+            "x": 0,
+            "y": 26
+          },
+          "b": {
+            "x": 0,
+            "y": 28
+          },
+          "c": {
+            "x": 0,
+            "y": 26
+          },
+          "d": {
+            "x": 0,
+            "y": 28
+          }
+        }
+      },
+      "keeper_line_1": {
+        "name": "Keeper Line",
+        "identifier": "keeper_line_1",
+        "coordinates": {
+          "a": {
+            "x": 0,
+            "y": 0
+          },
+          "b": {
+            "x": 0,
+            "y": 54
+          },
+          "c": {
+            "x": 12,
+            "y": 54
+          },
+          "d": {
+            "x": 12,
+            "y": 0
+          }
+        }
+      },
+      "defense_zone": {
+        "name": "Defense Zone",
+        "identifier": "defense_zone",
+        "coordinates": {
+          "a": {
+            "x": 12,
+            "y": 0
+          },
+          "b": {
+            "x": 12,
+            "y": 54
+          },
+          "c": {
+            "x": 76,
+            "y": 54
+          },
+          "d": {
+            "x": 76,
+            "y": 0
+          }
+        }
+      },
+      "offense_zone": {
+        "name": "Offense Zone",
+        "identifier": "offense_zone",
+        "coordinates": {
+          "a": {
+            "x": 76,
+            "y": 0
+          },
+          "b": {
+            "x": 76,
+            "y": 54
+          },
+          "c": {
+            "x": 140,
+            "y": 54
+          },
+          "d": {
+            "x": 140,
+            "y": 0
+          }
+        }
+      },
+      "keeper_line_2": {
+        "name": "Keeper Line",
+        "identifier": "keeper_line_2",
+        "coordinates": {
+          "a": {
+            "x": 140,
+            "y": 0
+          },
+          "b": {
+            "x": 140,
+            "y": 54
+          },
+          "c": {
+            "x": 154,
+            "y": 54
+          },
+          "d": {
+            "x": 154,
+            "y": 0
+          }
+        }
+      },
+      "goal_post_2": {
+        "name": "Goal Post",
+        "identifier": "goal_post_2",
+        "coordinates": {
+          "a": {
+            "x": 154,
+            "y": 26
+          },
+          "b": {
+            "x": 154,
+            "y": 28
+          },
+          "c": {
+            "x": 154,
+            "y": 26
+          },
+          "d": {
+            "x": 154,
+            "y": 28
+          }
+        }
+      }
+    }
+  },
+  "balls": {
+    "types": {
+      "quaffle": {
+        "name": "Quaffle",
+        "identifier": "quaffle",
+        "assets": {
+          "emoji": "🏀"
+        }
+      },
+      "bludger": {
+        "name": "Bludger",
+        "identifier": "bludger",
+        "assets": {
+          "emoji": "🏐"
+        }
+      },
+      "snitch": {
+        "name": "Snitch",
+        "identifier": "snitch",
+        "assets": {
+          "emoji": "🎾"
+        }
+      }
+    }
+  },
+  "players": {
+    "max_count": 11,
+    "count_on_field": 7,
+    "types": {
+      "chaser": {
+        "name": "Chaser",
+        "identifier": "chaser",
+        "type": "offense",
+        "max_count": 5,
+        "count_on_field": 3,
+        "game_start_position": "defense_zone",
+        "assets": {
+          "emoji": "🧹"
+        },
+        "play_zone": [
+          "offense_zone"
+        ],
+        "actions": [],
+        "actions_with_ball": [
+          "scores_goal",
+          "passes_quaffle"
+        ],
+        "opponent_actions": [],
+        "opponent_actions_with_ball": [
+          "quaffle_stolen"
+        ]
+      },
+      "beater": {
+        "name": "Beater",
+        "identifier": "beater",
+        "type": "defense",
+        "max_count": 3,
+        "count_on_field": 2,
+        "game_start_position": "defense_zone",
+        "assets": {
+          "emoji": "🧹"
+        },
+        "play_zone": [
+          "defense_zone",
+          "offense_zone"
+        ],
+        "actions": ["hits_opponent_with_bludger"],
+        "actions_with_ball": [],
+        "opponent_actions_with_ball": []
+      },
+      "keeper": {
+        "name": "Keeper",
+        "identifier": "keeper",
+        "type": "goalie",
+        "max_count": 2,
+        "count_on_field": 1,
+        "game_start_position": "keeper_line_1",
+        "assets": {
+          "emoji": "🧹"
+        },
+        "play_zone": [
+          "keeper_line_1"
+        ],
+        "actions": [],
+        "actions_with_ball": [],
+        "opponent_actions_with_ball": []
+      },
+      "seeker": {
+        "name": "Seeker",
+        "identifier": "seeker",
+        "type": "offense",
+        "max_count": 1,
+        "count_on_field": 1,
+        "game_start_position": "defense_zone",
+        "assets": {
+          "emoji": "🧹"
+        },
+        "play_zone": [
+          "defense_zone",
+          "offense_zone"
+        ],
+        "actions": ["looking_for_golden_snitch"],
+        "actions_with_ball": [],
+        "opponent_actions_with_ball": []
+      }
+    }
+  },
+  "initial_game_state": {
+    "balls": {
+      "snitch": {
+        "position": "random"
+      },
+      "quaffle": {
+        "owner": "chaser",
+        "team": "home"
+      }
+    }
+  },
+  "player_actions": {
+    "passes_quaffle": {
+      "auto_action": false,
+      "is_dependent_action": false,
+      "qualifications": ["offense", "speed"],
+      "opposite_qualifications": ["offense", "speed", "power", "stamina"],
+      "name": "Passes Quaffle",
+      "text": [
+        "{player} makes a quick pass to {teammate} with the Quaffle",
+        "{player} sends the Quaffle flying to {teammate} down the field",
+        "{player} passes the Quaffle smoothly to {teammate}",
+        "{player} makes a precise pass to {teammate}, avoiding the {opposite_player}",
+        "{player} sends a high pass to {teammate}, who catches it with ease"
+      ],
+      "on_fail_text": [
+        "{player} tries to pass the Quaffle to {teammate}, but a player from the opposing team intercepts it"
+      ],
+      "identifier": "passes_quaffle",
+      "chance": {
+        "base": 60,
+        "min": 10,
+        "modifiers": {
+          "distance": {
+            "to": "teammate",
+            "type": "chaser",
+            "modifier": -1
+          }
+        }
+      },
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0.1,
+        "defense": 0,
+        "speed": 0.15,
+        "stamina": 0.1
+      },
+      "assets": {
+        "emoji": "🏉"
+      },
+      "on_success": {
+        "redirect_to": {
+          "ball_player": "teammate",
+          "player_type": "chaser",
+          "ball": "quaffle",
+          "action": "get_quaffle"
+        }
+      },
+      "on_fail": {
+        "redirect_to": {
+          "player": "opposite",
+          "ball": "quaffle",
+          "player_type": "chaser",
+          "action": "get_quaffle"
+        }
+      }
+    },
+
+
+    "diving_save": {
+      "auto_action": true,
+      "is_dependent_action": true,
+      "text": [
+        "{player} makes a diving save",
+        "{player} dives to save the Quaffle",
+        "{player} throws themselves to the ground to block the Quaffle",
+        "{player} leaps to make a save",
+        "{player} lunges to deflect the Quaffle"],
+      "identifier": "diving_save",
+      "chance": 100,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0,
+        "defense": 0.15,
+        "speed": 0.1,
+        "stamina": 0.1
+      },
+      "assets": {
+        "emoji": "🤾"
+      },
+      "on_success": {
+        "redirect_to": {
+          "player": "self",
+          "ball": "quaffle",
+          "action": ["passes_quaffle"]
+        }
+      }
+    },
+    "misses_goal_attempt": {
+      "auto_action": true,
+      "is_dependent_action": true,
+      "text": [
+        "{player} lets the Quaffle slip through their fingers and into the goal.",
+        "{player} is unable to block the Quaffle and the opposing team scores.",
+        "{player} misjudges the trajectory of the Quaffle and allows it to sail past them into the goal.",
+        "{player} makes a valiant effort to save the shot, but the Quaffle slips past and into the goal.",
+        "{player} is caught off-guard by the opposing team's shot and concedes a goal."
+      ],
+      "identifier": "misses_goal_attempt",
+      "chance": 100,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0,
+        "defense": -0.1,
+        "speed": -0.05,
+        "stamina": -0.05
+      },
+      "assets": {
+        "emoji": "😩"
+      },
+      "on_success": {
+        "redirect_to": {
+          "player": "self",
+          "ball": "quaffle",
+          "action": ["passes_quaffle"]
+        }
+      }
+    },
+
+
+    "looking_for_golden_snitch": {
+      "auto_action": false,
+      "is_dependent_action": false,
+      "text": [
+        "{player} scanning the field for any sign of the elusive Golden Snitch.",
+        "{player} frantically searching the pitch for a glimpse of the Golden Snitch's telltale flash of gold.",
+        "{player} eyes darting around the stadium, searching for the fluttering wings of the Golden Snitch.",
+        "{player} focused on finding the tiny, winged ball that could mean victory or defeat: the Golden Snitch.",
+        "{player} straining to spot the Golden Snitch amidst the chaos of flying players and swirling bludgers."
+      ],
+      "identifier": "looking_for_golden_snitch",
+      "chance": 100,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0.01,
+        "defense": 0,
+        "speed": 0.01,
+        "stamina": 0.01
+      },
+      "assets": {
+        "emoji": "👀"
+      },
+      "on_success": {
+        "redirect_to": {
+          "player": "self",
+          "action": "spots_snitch"
+        }
+      }
+    },
+    "spots_snitch": {
+      "auto_action": true,
+      "is_dependent_action": true,
+      "qualifications": ["offense", "speed", "stamina"],
+      "opposite_qualifications": ["offense", "speed", "power", "stamina"],
+      "text": [
+        "{player} catches a glimpse of the Golden Snitch!",
+        "The Golden Snitch catches {player} eye!",
+        "{player} spots the Golden Snitch in the distance!",
+        "{player} notices the fluttering of wings nearby - it's the Golden Snitch!",
+        "{player} eyes lock onto the Golden Snitch, glinting in the sunlight!"],
+      "identifier": "spots_snitch",
+      "chance": {
+        "base": 40,
+        "min": 5,
+        "modifiers": {
+          "distance": {
+            "to": "ball",
+            "type": "snitch",
+            "modifier": -0.25
+          }
+        }
+      },
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0.2,
+        "defense": 0,
+        "speed": 0.05,
+        "stamina": 0.05
+      },
+      "assets": {
+        "emoji": "🙈"
+      },
+      "on_success": {
+        "redirect_to": {
+          "player": "self",
+          "action": "catches_golden_snitch"
+        }
+      }
+    },
+    "loses_sight_of_snitch": {
+      "auto_action": true,
+      "is_dependent_action": true,
+      "text": [
+        "The Golden Snitch disappears from view, leaving the {player} searching frantically.",
+        "{player} loses track of the Golden Snitch as it darts around the pitch.",
+        "A sudden gust of wind sends the Golden Snitch out of sight, confounding the {player}'s efforts to catch it.",
+        "The Golden Snitch disappears into a cloud, causing the {player} to momentarily lose sight of it.",
+        "The {player}'s vision is momentarily obstructed by a Bludger, causing them to lose sight of the Golden Snitch."
+      ],
+      "identifier": "loses_sight_of_snitch",
+      "chance": 100,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": -0.01,
+        "defense": 0,
+        "speed": -0.01,
+        "stamina": -0.01
+      },
+      "assets": {
+        "emoji": "🙈"
+      }
+    },
+    "catches_golden_snitch": {
+      "auto_action": true,
+      "is_dependent_action": true,
+      "qualifications": ["offense", "speed", "stamina"],
+      "opposite_qualifications": ["offense", "defense", "speed", "power", "stamina"],
+      "text": [
+        "{player} catches the Golden Snitch!",
+        "{player} grabs the Golden Snitch out of the air!",
+        "{player} captures the elusive Golden Snitch!",
+        "{player} snatches the Golden Snitch!",
+        "{player} seizes the Golden Snitch and ends the game!"
+      ],
+      "identifier": "catches_golden_snitch",
+      "chance": {
+        "base": 10,
+        "min": 5,
+        "modifiers": {
+          "distance": {
+            "to": "ball",
+            "type": "snitch",
+            "modifier": -0.25
+          }
+        }
+      },
+      "score": 150,
+      "stop_game": true,
+      "stats_effect_delta": {
+        "offense": 2,
+        "defense": 0.05,
+        "speed": 1,
+        "stamina": 0.5
+      },
+      "assets": {
+        "emoji": "🏆"
+      },
+      "on_success": {
+        "redirect_to": {
+          "player": "self",
+          "ball": "snitch"
+        }
+      },
+      "on_failure": {
+        "redirect_to": {
+          "player": "self",
+          "action": "loses_sight_of_snitch"
+        }
+      }
+    },
+
+
+    "hits_opponent_with_bludger": {
+      "auto_action": false,
+      "is_dependent_action": false,
+      "qualifications": ["defense", "power", "stamina"],
+      "opposite_qualifications": ["defense", "defense", "speed", "power", "stamina"],
+      "text": [
+        "{player} hits {opposite_player} with a Bludger",
+        "{player} nails {opposite_player} with a Bludger",
+        "{player} strikes {opposite_player} with a Bludger",
+        "{player} whacks {opposite_player} with a Bludger",
+        "{player} smacks {opposite_player} with a Bludger"],
+      "identifier": "hits_opponent_with_bludger",
+      "chance": {
+        "base": 50,
+        "min": 5,
+        "modifiers": {
+          "distance": {
+            "to": "opposite",
+            "type": "any",
+            "modifier": -1
+          }
+        }
+      },
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0,
+        "defense": 0.1,
+        "speed": 0.05,
+        "stamina": 0.05
+      },
+      "assets": {
+        "emoji": "🔨"
+      },
+      "on_success": {
+        "redirect_to": {
+          "player": "opposite",
+          "player_type": "any",
+          "action": "hit_by_bludger"
+        }
+      },
+      "on_failure": {
+        "redirect_to": [
+          {
+            "player": "self",
+            "action": "misses_bludger"
+          },
+          {
+            "player": "self",
+            "action": "hits_teammate_with_bludger"
+          },
+          {
+            "player": "opposite",
+            "player_type": "beater",
+            "action": "saves_teammate_from_bludger"
+          }
+        ]
+      }
+    },
+    "hits_teammate_with_bludger": {
+      "auto_action": true,
+      "is_dependent_action": true,
+      "text": [
+        "{player} accidentally hits {teammate} with a Bludger!",
+        "{player} fails to avoid hitting {teammate} with a Bludger!",
+        "{player} misjudges the trajectory of the Bludger and hits {teammate}!",
+        "{player} swings too hard and sends the Bludger flying into {teammate}!",
+        "{player} gets distracted and hits {teammate} with a Bludger!"],
+      "identifier": "hits_teammate_with_bludger",
+      "chance": {
+        "base": 20,
+        "min": 5,
+        "modifiers": {
+          "distance": {
+            "to": "teammate",
+            "type": "any",
+            "modifier": -0.5
+          }
+        }
+      },
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0,
+        "defense": -0.15,
+        "speed": -0.1,
+        "stamina": -0.1
+      },
+      "assets": {
+        "emoji": "💥"
+      },
+        "on_success": {
+          "redirect_to": {
+            "player": "teammate",
+            "player_type": "any",
+            "action": "hit_by_bludger"
+          }
+        }
+    },
+    "misses_bludger": {
+      "auto_action": true,
+      "is_dependent_action": true,
+      "text": [
+        "{player} swings at a Bludger, but misses.",
+        "{player} attempts to strike a Bludger, but whiffs.",
+        "{player} just narrowly avoids hitting a Bludger.",
+        "{player} dodges a Bludger that narrowly missed.",
+        "{player} overestimates the trajectory of a Bludger and misses."
+      ],
+      "identifier": "misses_bludger",
+      "chance": 100,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0,
+        "defense": -0.1,
+        "speed": -0.05,
+        "stamina": -0.05
+      },
+      "assets": {
+        "emoji": "🤷"
+      }
+    },
+    "saves_teammate_from_bludger": {
+      "auto_action": true,
+      "is_dependent_action": true,
+      "text": [
+        "{player} intercepts a Bludger aimed at {teammate} and redirects it towards an opposing player.",
+        "{player} jumps in front of {teammate} to block a Bludger that was headed towards them.",
+        "{player} dives to the side and deflects a Bludger that was about to hit {teammate}.",
+        "{player} swoops down and hits a Bludger away just in time to save {teammate} from being hit.",
+        "{player} uses their broom to shield {teammate} from an incoming Bludger."
+      ],
+      "identifier": "saves_teammate_from_bludger",
+      "chance": {
+        "base": 50,
+        "min": 5,
+        "modifiers": {
+          "distance": {
+            "to": "teammate",
+            "type": "any",
+            "modifier": -1
+          }
+        }
+      },
+      "score": 0,
+      "stop_game": false,
+      "qualifications": ["defense", "speed", "power", "stamina"],
+      "opposite_qualifications": ["speed", "power"],
+      "stats_effect_delta": {
+        "offense": 0,
+        "defense": 0.1,
+        "speed": 0.1,
+        "stamina": 0.1
+      },
+      "assets": {
+        "emoji": "🛡️"
+      }
+    },
+    "hit_by_bludger": {
+      "auto_action": true,
+      "is_dependent_action": true,
+      "text": [
+        "gets hit by a Bludger",
+        "gets struck by a Bludger!",
+        "takes a direct hit from a Bludger!",
+        "gets pummeled by a Bludger!",
+        "gets knocked off course by a Bludger!",
+        "gets whacked by a Bludger!"],
+      "identifier": "hit_by_bludger",
+      "chance": 100,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": -0.15,
+        "defense": -0.15,
+        "speed": -0.1,
+        "stamina": -0.1
+      },
+      "assets": {
+        "emoji": "💥"
+      }
+    },
+
+
+    "scores_goal": {
+      "auto_action": false,
+      "is_dependent_action": false,
+      "qualifications": ["offense", "power"],
+      "opposite_qualifications": ["defense", "speed", "power", "stamina"],
+      "text": [
+        "{player} scores a magnificent goal for the {team}!",
+        "{player} puts the Quaffle through the goalposts and scores for the {team}!",
+        "{player} nets a goal for the {team}!",
+        "{player} scores a crucial point for the {team}!",
+        "{player} puts the Quaffle in the back of the net for the {opponent_team} and scores!"
+      ],
+      "on_fail_text": [
+        "{player} throws wide!",
+        "{player} hits the goalpost!",
+        "{player} throws too high!",
+        "{player} throws too low!",
+        "{player} throws too wide!",
+        "{player} throws too close to the Keeper!",
+        "{player} throws too far from the goal!"
+      ],
+      "identifier": "scores_goal",
+      "chance": {
+        "base": 50,
+        "min": 5,
+        "modifiers": {
+          "distance": {
+            "to": "opposite",
+            "type": "keeper",
+            "modifier": -3
+          }
+        }
+      },
+      "score": 10,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0.2,
+        "defense": 0,
+        "speed": 0.1,
+        "stamina": 0.1
+      },
+      "assets": {
+        "emoji": "🥅"
+      },
+      "on_success": {
+        "redirect_to": {
+          "player": "opposite",
+          "player_type": "keeper",
+          "action": "misses_goal_attempt",
+          "ball": "quaffle"
+        }
+      },
+      "on_fail": {
+        "redirect_to": {
+          "player": "opposite",
+          "player_type": "keeper",
+          "action": "diving_save",
+          "ball": "quaffle"
+        }
+      }
+    },
+    "drops_quaffle": {
+      "auto_action": true,
+      "is_dependent_action": true,
+      "text": [
+        "{player} fumbles the Quaffle and drops it",
+        "{player} loses control of the Quaffle and drops it",
+        "{player} mishandles the Quaffle, causing it to drop to the ground",
+        "{player} attempts to catch the Quaffle, but drops it instead",
+        "{player} inadvertently drops the Quaffle while attempting to pass it to {teammate}"
+      ],
+      "identifier": "drops_quaffle",
+      "chance": 100,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": -0.1,
+        "defense": -0.1,
+        "speed": -0.05,
+        "stamina": -0.05
+      },
+      "assets": {
+        "emoji": "💔"
+      },
+      "on_success": {
+        "redirect_to": {
+          "player": "opposite",
+          "player_type": "chaser",
+          "action": "get_quaffle",
+          "ball": "quaffle"
+        }
+      }
+    },
+    "quaffle_stolen": {
+      "auto_action": false,
+      "is_dependent_action": false,
+      "qualifications": ["offense", "power", "speed", "stamina"],
+      "opposite_qualifications": ["defense", "speed", "power", "stamina"],
+      "text": [
+        "{player} intercepts the Quaffle",
+        "{player} snatches the Quaffle away from {opposite_player}",
+        "{player} steals possession of the Quaffle from {opposite_player}",
+        "{player} takes the Quaffle away from {opposite_player}",
+        "{player} grabs the Quaffle from mid-air, stealing it from {opposite_player}"],
+      "on_fail_text": [
+        "{player} reaches for the Quaffle, but {opposite_player} snatches it away!",
+        "{player} tries to take the Quaffle from {opposite_player}, but {opposite_player} keeps a tight grip on it.",
+        "{opposite_player} fends off {player}'s attempt to steal the Quaffle!",
+        "{player} tries to steal the Quaffle, but {opposite_player} sees it coming and keeps possession.",
+        "{opposite_player} anticipates {player}'s move and holds onto the Quaffle."
+      ],
+      "identifier": "quaffle_stolen",
+      "chance": {
+        "base": 50,
+        "min": 5,
+        "modifiers": {
+          "distance": {
+            "to": "opposite",
+            "type": "chaser",
+            "modifier": -1
+          }
+        }
+      },
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0.1,
+        "defense": 0.1,
+        "speed": 0.1,
+        "stamina": 0.1
+      },
+      "assets": {
+        "emoji": "🏆"
+      },
+      "on_success": {
+        "redirect_to": {
+          "player": "opposite",
+          "player_type": "chaser",
+          "action": "drops_quaffle",
+          "ball": "quaffle"
+        }
+      }
+    },
+    "get_quaffle": {
+      "auto_action": true,
+      "is_dependent_action": true,
+      "text": [
+        "{player} gains possession of the quaffle.",
+        "{player} takes control of the quaffle.",
+        "{player} grabs the quaffle.",
+        "{player} catches the quaffle.",
+        "{player} secures the quaffle."
+      ],
+      "identifier": "get_quaffle",
+      "chance": 100,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0.1,
+        "defense": 0.1,
+        "speed": 0.1,
+        "stamina": 0.1
+      },
+      "assets": {
+        "emoji": "🏆"
+      },
+      "on_success": {
+        "redirect_to": {
+          "player": "self",
+          "ball": "quaffle"
+        }
+      }
+    }
+  },
+  "random_events": {
+    "avoids_bludger": {
+      "text": [
+        "avoids a Bludger",
+        "skillfully dodges a Bludger!",
+        "swiftly maneuvers around a Bludger!",
+        "leaps over a flying Bludger!",
+        "jukes to the side to avoid a Bludger!",
+        "expertly weaves through a barrage of Bludgers!"
+      ],
+      "identifier": "avoids_bludger",
+      "chance": 50,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0,
+        "defense": 0.1,
+        "speed": 0.1,
+        "stamina": 0.1
+      },
+      "assets": {
+        "emoji": "🤸"
+      }
+    },
+    "met_dementor": {
+      "text": [
+        "comes face-to-face with a Dementor!",
+        "encounters a chilling Dementor!",
+        "confronts a haunting Dementor!",
+        "meets an ominous Dementor!",
+        "senses the presence of a soul-sucking Dementor!"
+      ],
+      "identifier": "met_dementor",
+      "chance": 5,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": -0.2,
+        "defense": -0.2,
+        "speed": -0.2,
+        "stamina": -0.2
+      },
+      "assets": {
+        "emoji": "👻"
+      }
+    },
+    "caught_lucky_frog": {
+      "text": [
+        "successfully catches a lucky frog!",
+        "grabs hold of a fortunate frog!",
+        "captures a fortuitous frog!",
+        "snags a serendipitous frog!",
+        "gets lucky and catches a magical frog!"
+      ],
+      "identifier": "caught_lucky_frog",
+      "chance": 10,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0.1,
+        "defense": 0.1,
+        "speed": 0.1,
+        "stamina": 0.1
+      },
+      "assets": {
+        "emoji": "🐸"
+      }
+    },
+    "flew_into_stands": {
+      "text": [
+        "collides with the stands in a spectacular crash!",
+        "spirals out of control and smashes into the stands!",
+        "gets launched into the air and lands in the stands!",
+        "crashes into the stands with a resounding thud!",
+        "barrels into the stands, narrowly avoiding the spectators!"
+      ],
+      "identifier": "flew_into_stands",
+      "chance": 5,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": -0.1,
+        "defense": -0.1,
+        "speed": -0.2,
+        "stamina": -0.2
+      },
+      "assets": {
+        "emoji": "🤕"
+      }
+    },
+    "fell_off_broom": {
+      "text": [
+        "tumbles off the broom in a spectacular fall!",
+        "loses balance and plummets off the broom!",
+        "falls off the broom with a resounding crash!",
+        "slips off the broom and crashes to the ground!",
+        "comes crashing down from the broom in a heap!"
+      ],
+      "identifier": "fell_off_broom",
+      "chance": 15,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": -0.2,
+        "defense": -0.2,
+        "speed": -0.1,
+        "stamina": -0.1
+      },
+      "assets": {
+        "emoji": "💔"
+      }
+    },
+    "noticed_girl_distracted": {
+      "text": [
+        "gets distracted by a glimpse of a beautiful girl!",
+        "notices an enchanting girl and loses focus!",
+        "gets momentarily lost in thought at the sight of a lovely girl!",
+        "becomes distracted by the sight of an attractive girl!",
+        "catches a glimpse of a pretty girl and loses concentration!"
+      ],
+      "identifier": "noticed_girl_distracted",
+      "chance": 5,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": -0.1,
+        "defense": -0.1,
+        "speed": 0.1,
+        "stamina": 0.1
+      },
+      "assets": {
+        "emoji": "😍"
+      }
+    },
+    "break_rules": {
+      "text": [
+        "commits a foul and breaks the rules!",
+        "disobeys the rules!",
+        "steps out of bounds!",
+        "breaks a Quidditch rule!",
+        "commits an illegal move!"
+      ],
+      "identifier": "break_rules",
+      "chance": 15,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": -0.15,
+        "defense": -0.15,
+        "speed": -0.05,
+        "stamina": -0.05
+      },
+      "assets": {
+        "emoji": "🚨"
+      }
+    },
+    "uncontrollable_broom": {
+      "text": [
+        "rides an enchanted broom that seems to have a mind of its own!",
+        "attempts to control an uncontrollable, enchanted broom!",
+        "struggles to steer an enchanted broom that has a mind of its own!",
+        "rides an enchanted broom that is seemingly impossible to control!",
+        "fights to stay on an uncontrollable, enchanted broom!"
+      ],
+      "identifier": "uncontrollable_broom",
+      "chance": 10,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": -0.1,
+        "defense": -0.1,
+        "speed": -0.2,
+        "stamina": -0.2
+      },
+      "assets": {
+        "emoji": "🧹💫"
+      }
+    },
+    "enchanted_broom_speed": {
+      "text": [
+        "rides an enchanted broom that's accelerating rapidly!",
+        "feels the enchantment on the broom increase the speed!",
+        "rides an enchanted broom that's picking up speed!",
+        "struggles to control an enchanted broom that's speeding up!",
+        "rides an enchanted broom that's gaining speed at an alarming rate!"
+      ],
+      "identifier": "enchanted_broom_speed",
+      "chance": 10,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": 0.1,
+        "defense": 0.1,
+        "speed": 0.2,
+        "stamina": 0.1
+      },
+      "assets": {
+        "emoji": "🧹💨"
+      }
+    },
+    "cursed": {
+      "text": [
+        "is hit by a curse and falls off the broom!",
+        "is struck by a curse and feels weakened!",
+        "feels the effects of a curse and struggles to stay in the game!",
+        "is cursed and feels their magical abilities decrease!",
+        "is hit by a dark curse and falls into a dizzy spell!"
+      ],
+      "identifier": "cursed",
+      "chance": 10,
+      "score": 0,
+      "stop_game": false,
+      "stats_effect_delta": {
+        "offense": -0.2,
+        "defense": -0.2,
+        "speed": -0.2,
+        "stamina": -0.2
+      },
+      "assets": {
+        "emoji": "🧙‍️💀"
+      }
+    }
+  },
+  "fans_events": {
+    "cheering_crowds": {
+      "text": [
+        "The crowd of home team supporters is going wild, chanting and cheering on their players!",
+        "The home team's fans are roaring with excitement, urging on their players with their cheers!",
+        "The crowd of supporters for the home team is going crazy, cheering on their players with enthusiasm!",
+        "The home team's fans are cheering loudly, showing their support for their players with each play!",
+        "The fans of the home team are on their feet, clapping and cheering for their players!"
+      ],
+      "identifier": "cheering_crowds",
+      "chance": 25,
+      "assets": {
+        "emoji": "🎉"
+      },
+      "to": [
+        "seeker",
+        "beater",
+        "chaser",
+        "keeper"
+      ],
+      "stats_effect_delta": {
+        "offense": 0.02,
+        "defense": 0.02,
+        "speed": 0.02,
+        "stamina": 0.02
+      }
+    },
+    "jeering_crowds": {
+      "text": [
+        "The opposing team's supporters are taunting and shouting insults, trying to throw the home team's players off their game.",
+        "The fans of the opposing team are jeering and hurling insults, attempting to distract the home team's players.",
+        "The crowd of supporters for the opposing team is shouting and heckling, trying to throw the home team's players off their game.",
+        "The fans of the opposing team are yelling and shouting, attempting to disrupt the concentration of the home team's players.",
+        "The opposing team's supporters are making a lot of noise, trying to distract the home team's players with their insults and jeers."
+      ],
+      "identifier": "jeering_crowds",
+      "chance": 25,
+      "assets": {
+        "emoji": "😾"
+      },
+      "to": [
+        "seeker",
+        "beater",
+        "chaser",
+        "keeper"
+      ],
+      "stats_effect_delta": {
+        "offense": -0.02,
+        "defense": -0.02,
+        "speed": -0.02,
+        "stamina": -0.02
+      }
+    },
+    "cheering_charm": {
+      "text": [
+        "The home team's supporters are casting a charm that fills their players with confidence and energy.",
+        "The fans of the home team have cast a spell that's boosting the confidence and morale of their players.",
+        "The cheering charm cast by the home team's supporters is having a positive effect on their players, boosting their confidence.",
+        "The fans of the home team have used a spell to bolster the confidence of their players and give them an edge in the game.",
+        "The home team's supporters have cast a powerful spell that's giving their players a boost of confidence and motivation."
+      ],
+      "identifier": "cheering_charm",
+      "chance": 10,
+      "assets": {
+        "emoji": "😻"
+      },
+      "to": [
+        "seeker",
+        "beater",
+        "chaser",
+        "keeper"
+      ],
+      "stats_effect_delta": {
+        "offense": 0.04,
+        "defense": 0.01,
+        "speed": 0.02,
+        "stamina": 0
+      }
+    },
+    "disarming_hex": {
+      "text": [
+        "The opposing team's fans attempt to distract a home team player by throwing objects onto the pitch!",
+        "The opposing team's fans use a blinding spell to try and disrupt the home team's play!",
+        "The opposing team's fans attempt to jinx the home team's Keeper, but the spell is blocked!",
+        "The opposing team's fans try to intimidate the home team's Chasers by creating a loud noise!",
+        "The opposing team's fans attempt to interfere with the home team's Seeker by throwing debris onto the pitch!"],
+      "identifier": "disarming_hex",
+      "chance": 5,
+      "assets": {
+        "emoji": "😴"
+      },
+      "to": [
+        "seeker",
+        "beater",
+        "chaser",
+        "keeper"
+      ],
+      "stats_effect_delta": {
+        "offense": -0.05,
+        "defense": -0.05,
+        "speed": -0.05,
+        "stamina": -0.05
+      }
+    },
+    "healing_charm": {
+      "text": [
+        "The home team's fans cast a healing charm, mending one of their injured players!",
+        "A burst of green light illuminates the field as the home team's fans cast a healing spell, healing one of their injured players!",
+        "The home team's fans band together to cast a healing charm, curing one of their injured players!",
+        "With a wave of their wands, the home team's fans cast a healing spell, restoring one of their injured players!",
+        "As the injured player struggles to get up, the home team's fans cast a healing charm, mending their wounds and allowing them to continue playing."],
+      "identifier": "healing_charm",
+      "chance": 10,
+      "assets": {
+        "emoji": "🧙"
+      },
+      "to": [
+        "seeker",
+        "beater",
+        "chaser",
+        "keeper"
+      ],
+      "stats_effect_delta": {
+        "offense": 0,
+        "defense": 0,
+        "speed": 0,
+        "stamina": 0.05
+      }
+    }
+  },
+  "weather": {
+    "snowstorm": {
+      "text": "The snowstorm intensifies, making movement slow and difficult",
+      "identifier": "snowstorm",
+      "chance": 12,
+      "assets": {
+        "emoji": "❄️"
+      },
+      "to": [
+        "all"
+      ],
+      "stats_effect_delta": {
+        "offense": -0.01,
+        "defense": -0.03,
+        "speed": -0.04,
+        "stamina": -0.03
+      }
+    },
+    "foggy": {
+      "text": "A dense fog descends, making visibility poor",
+      "identifier": "foggy",
+      "chance": 5,
+      "assets": {
+        "emoji": "🌫️"
+      },
+      "to": [
+        "all"
+      ],
+      "stats_effect_delta": {
+        "offense": -0.02,
+        "defense": -0.02,
+        "speed": -0.02,
+        "stamina": -0.01
+      }
+    },
+    "hot": {
+      "text": "The scorching heat takes a toll on your energy",
+      "identifier": "hot",
+      "chance": 5,
+      "assets": {
+        "emoji": "🌞"
+      },
+      "to": [
+        "all"
+      ],
+      "stats_effect_delta": {
+        "offense": -0.03,
+        "defense": -0.01,
+        "speed": -0.01,
+        "stamina": -0.05
+      }
+    },
+    "rainy": {
+      "text": "A sudden downpour makes the ground slick and treacherous",
+      "identifier": "rainy",
+      "chance": 5,
+      "assets": {
+        "emoji": "🌧️"
+      },
+      "to": [
+        "all"
+      ],
+      "stats_effect_delta": {
+        "offense": -0.01,
+        "defense": -0.02,
+        "speed": -0.03,
+        "stamina": -0.02
+      }
+    },
+    "windy": {
+      "text": "The wind picks up, making it harder to hit your target",
+      "identifier": "windy",
+      "chance": 5,
+      "assets": {
+        "emoji": "💨"
+      },
+      "to": [
+        "all"
+      ],
+      "stats_effect_delta": {
+        "offense": -0.02,
+        "defense": -0.01,
+        "speed": -0.02,
+        "stamina": -0.01
+      }
+    },
+    "sunny_day": {
+      "text": "it's a sunny day!",
+      "identifier": "sunny_day",
+      "chance": 100,
+      "assets": {
+        "emoji": "☀️"
+      },
+      "to": [
+        "seeker",
+        "beater",
+        "chaser",
+        "keeper"
+      ],
+      "stats_effect_delta": {
+        "offense": 0.01,
+        "defense": 0.01,
+        "speed": 0.01,
+        "stamina": 0.01
+      }
+    }
+  },
+  "on_win_stats_effect_delta": {
+    "offense": 0.5,
+    "defense": 0.5,
+    "speed": 0.5,
+    "stamina": 0.5
+  },
+  "on_loss_stats_effect_delta": {
+    "offense": 0.1,
+    "defense": 0.1,
+    "speed": 0.1,
+    "stamina": 0.1
+  }
+}

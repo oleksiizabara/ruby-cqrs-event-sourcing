@@ -1,0 +1,2 @@
+class UserBonuce < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class GameRecap < ApplicationRecord
+end
