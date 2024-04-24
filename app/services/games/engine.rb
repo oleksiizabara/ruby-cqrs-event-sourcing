@@ -2,12 +2,12 @@ module Games
   class Engine
     extend Dry::Initializer
 
-    option :game, Types.Instance(Game)
-    option :offence_team , Types.Instance(Team)
-    option :defence_team, Types.Instance(Team)
-    option :params, Types::Hash do
-      option :strategy, Types.Instance(Strategy)
-      option :bonuses, Types::Array.of(Types.Instance(Bonus)), default: proc { [] }
+    option :game
+    option :offence_team
+    option :defence_team
+    option :params do
+      option :strategy
+      option :bonuses
     end
 
     # each team has 7 active players

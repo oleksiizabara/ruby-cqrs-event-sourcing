@@ -7,6 +7,8 @@ module GameEventHandlers
 
       return if finished?
 
+      game.update!(status: Game::FINISHED, end_time: finish_at)
+
       event = GameEvents::GameFinished.new(type: "GameFinished", data: { game_id: game.id,
                                                                          finished_at: finish_at })
 

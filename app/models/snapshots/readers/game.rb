@@ -21,6 +21,10 @@ module Snapshots
 
       def players(team_id)
         JSON.parse(hgetall(key)["players:#{team_id}"] || '{}').each_with_object({}) do |(id, player), players|
+          pl = ::Snapshots::Entries::Player.new(player.deep_symbolize_keys)
+
+          return yield pl if block_given?
+
           players[id] = ::Snapshots::Entries::Player.new(player.deep_symbolize_keys)
         end
       end

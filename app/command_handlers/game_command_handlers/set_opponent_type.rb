@@ -28,15 +28,15 @@ module GameCommandHandlers
     end
 
     def publish_game_started_event
-      event = Events::GameEvents::GameStarted.new(type: "GameStarted", data: { game_id: game.id, started_at: Time.now })
+      event = ::GameEvents::GameStarted.new(type: "GameStarted", data: { game_id: game.id, started_at: Time.now })
 
-      EventStore::Store.publish("game", event)
+      ::EventStore::Store.publish("game", event)
     end
 
     def cache_bot_team
       recorder = Snapshots::Recorders::Game.new(game.id)
 
-      team_entry = Snapshots::Entries::Team.new(id: bot_team.id, name: bot_team.name, user_id: team.user_id, bot: true)
+      team_entry = Snapshots::Entries::Team.new(id: bot_team.id, name: bot_team.name, user_id: bot_team.user_id, bot: true, home: false)
       recorder.team(team_entry)
 
       bot_players.each do |player|

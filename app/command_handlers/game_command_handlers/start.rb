@@ -29,7 +29,7 @@ module GameCommandHandlers
       recorder = Snapshots::Recorders::Game.new(game.id)
       recorder.game_type_data(game_type_data.game_data)
 
-      team_entry = Snapshots::Entries::Team.new(id: team.id, name: team.name, user_id: team.user_id)
+      team_entry = Snapshots::Entries::Team.new(id: team.id, name: team.name, user_id: team.user_id, home: true)
       recorder.team(team_entry)
 
       players.each do |player|
@@ -50,24 +50,24 @@ module GameCommandHandlers
     end
 
     def team
-      @team = begin
-                query = TeamQueries::Show.new(initiator: initiator, data: { game_type_id: data.game_type_id })
-                ::TeamQueryHandlers::Show.new(query).execute.message
-              end
+      @team ||= begin
+                  query = TeamQueries::Show.new(initiator: initiator, data: { game_type_id: data.game_type_id })
+                  ::TeamQueryHandlers::Show.new(query).execute.message
+                end
     end
 
     def game
-      @game = begin
-                query = GameQueries::ActiveGame.new(initiator: initiator, data: { game_type_id: data.game_type_id })
-                ::GameQueryHandlers::ActiveGame.new(query).execute.message
-              end
+      @game ||= begin
+                  query = GameQueries::ActiveGame.new(initiator: initiator, data: { game_type_id: data.game_type_id })
+                  ::GameQueryHandlers::ActiveGame.new(query).execute.message
+                end
     end
 
     def game_type_data
-      @game_type_data = begin
-                          query = GameQueries::ShowType.new(initiator: initiator, data: { id: data.game_type_id })
-                          ::GameQueryHandlers::ShowType.new(query).execute.message
-                        end
+      @game_type_data ||= begin
+                            query = GameQueries::ShowType.new(initiator: initiator, data: { id: data.game_type_id })
+                            ::GameQueryHandlers::ShowType.new(query).execute.message
+                          end
     end
   end
 end
