@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Fantasy League Chat Bot
 
-Things you may want to cover:
+This is a telegram bot that allows users to create and manage Telegram games. 
 
-* Ruby version
+The bot allows users to create your own games via standard JSON files(see the examples in the `lib/assets/games` folder), and then play them with friends.
 
-* System dependencies
+The bot is built using the telegram-bot-ruby gem and the Rails framework.
+CQRS and Event Sourcing are used to manage the state of the games and the interactions with the users.
 
-* Configuration
+# local env
+```bash
+# install dependencies
 
-* Database creation
+bundle install
 
-* Database initialization
+# setup database
 
-* How to run the test suite
+rails db:reset
 
-* Services (job queues, cache servers, search engines, etc.)
+# run server
 
-* Deployment instructions
+rake telegram:bot:poller
+```
 
-* ...
+
+follow the instructions in the telegram bot to interact with the bot: [@FantasyLeagueChatBot](https://t.me/FantasyLeagueChatBot)

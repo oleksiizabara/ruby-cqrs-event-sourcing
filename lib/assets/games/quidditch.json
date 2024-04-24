@@ -326,8 +326,6 @@
         }
       }
     },
-
-
     "diving_save": {
       "auto_action": true,
       "is_dependent_action": true,
@@ -389,8 +387,6 @@
         }
       }
     },
-
-
     "looking_for_golden_snitch": {
       "auto_action": false,
       "is_dependent_action": false,
@@ -534,8 +530,6 @@
         }
       }
     },
-
-
     "hits_opponent_with_bludger": {
       "auto_action": false,
       "is_dependent_action": false,
@@ -719,8 +713,6 @@
         "emoji": "💥"
       }
     },
-
-
     "scores_goal": {
       "auto_action": false,
       "is_dependent_action": false,
