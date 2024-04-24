@@ -17,7 +17,11 @@ bundle install
 
 # setup database
 
-rails db:reset
+rails db:setup
+
+rake bonuses:create
+rake strategies:create
+rake users:create
 
 # run server
 
